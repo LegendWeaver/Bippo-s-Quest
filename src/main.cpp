@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-// #include <SFML/Graphics.hpp>
 
 using namespace std;
 
@@ -41,10 +40,11 @@ int main()
     cin >> start;
     tolower(start);
 
+
     if (start == 'y')
     {
         // start game
-        cout << "\n\nI'm happy to hear it. Bippo has been waiting for you";
+        cout << "\n\nI'm happy to hear it. Bippo has been waiting for you. ";
         gameStart = true;
     }
     else if (start == 'n')
@@ -56,13 +56,14 @@ int main()
     else
     {
         cout << "\nError. Invalid input.";
-        cin >> start;
     }
 
     if (gameStart == true)
     {
         cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
-        cin >> playerName;
+        //cin >> playerName;
+        cin.ignore();
+        getline(cin, playerName);
     }
 
     if (gameStart == true && !playerName.empty())
@@ -76,8 +77,8 @@ int main()
         switch (action)
         {
         case 1:
-            if (bipHunger >> 0)
-                feedBippo(bipHunger, bipFilth, bipBoredom, action);
+            if (bipHunger > 0)
+                feedBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
             else
                 bipHunger -= 1;
             bipFilth += 1;
@@ -85,8 +86,8 @@ int main()
             cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian" << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
             break;
         case 2:
-            if (bipBoredom >> 0)
-                playWithBippo(bipHunger, bipFilth, bipBoredom, action);
+            if (bipBoredom > 0)
+                playWithBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
             else
                 bipBoredom -= 1;
             bipFilth += 2;
@@ -95,8 +96,8 @@ int main()
             cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian" << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
             break;
         case 3:
-            if (bipFilth >> 0)
-                washBippo(bipHunger, bipFilth, bipBoredom, action);
+            if (bipFilth > 0)
+                washBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
 
             else
                 bipFilth -= 2;
@@ -106,7 +107,8 @@ int main()
             break;
 
         default:
-            cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian" << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n"; break;
+            cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian" << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+            break;
         }
     }
 }
