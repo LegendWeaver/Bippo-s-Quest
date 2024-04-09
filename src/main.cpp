@@ -71,11 +71,10 @@ int main()
         cout << "\n"
              << playerName << "? Alright. It seems he's learned your name. You have a few choices now! Do you feed him (enter 1)? Play with him (enter 2)? Or wash him (enter 3)? I'll leave you to it!\n\n";
         cin >> action;
+        bool bipHappy = true;
 
         // taking care of Bippo
-        // stardard scenarios
-        switch (action)
-        {
+        switch (action) {
         case 1:
             if (bipHunger > 0)
                 feedBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
@@ -111,4 +110,6 @@ int main()
             break;
         }
     }
+
+    return 0;
 }
