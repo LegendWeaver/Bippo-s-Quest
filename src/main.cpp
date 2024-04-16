@@ -35,6 +35,7 @@ int main()
     string playerName;
     int bipHunger = 1, bipFilth = 1, bipBoredom = 1, action;
     bool gameStart = false;
+    
     cout << "Welcome to Bippo's Quest! You are Bippo's new guardian, correct? Y for yes, N for no\n\n"
          << endl;
     cin >> start;
