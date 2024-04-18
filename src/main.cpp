@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 void feedBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName)
 {
     bipHunger -= 1;
@@ -28,6 +27,11 @@ void washBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, cons
     bipHunger += 1;
     action = 0;
     cout << "\n\n *Bippo begrudgingly lets you scrub all the gunk off of him *\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+}
+
+void bippoWarning (int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName) {
+    cout << "\n\n Warning! Bippo is looking too";
+    
 }
 
 
