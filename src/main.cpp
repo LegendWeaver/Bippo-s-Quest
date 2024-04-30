@@ -11,6 +11,7 @@ void feedBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, cons
     bipFilth += 1;
     action = 0;
     cout << "\n\n *Bippo looks at you excitedly as you toss him a treat.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    action = 0;
 }
 
 void playWithBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName)
@@ -19,14 +20,16 @@ void playWithBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, 
     bipFilth += 1;
     action = 0;
     cout << "\n\n *Bippo looks at you excitedly as you toss him a treat.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    action = 0;
 }
 
 void washBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName)
-{
+{ 
     bipFilth = 0;
     bipHunger += 1;
     action = 0;
     cout << "\n\n *Bippo begrudgingly lets you scrub all the gunk off of him *\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    action = 0;
 }
 
 void bippoWarning (int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName) {
@@ -101,7 +104,7 @@ int main()
     break;
     }
 
-    if (gameStart == true)
+    if (gameStart == true && playerName.empty())
     {
         cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
         //cin >> playerName;
@@ -120,7 +123,7 @@ int main()
                 // taking care of Bippo
                 switch (action) {
                 case 1:
-                    if (bipHunger > 0)
+                    if (4 > bipHunger > 0)
                         feedBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
                     else
                         bipHunger -= 1;
@@ -129,8 +132,9 @@ int main()
                         cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                     break;
                 case 2:
-                    if (bipBoredom > 0)
+                    if (4 > bipBoredom > 0)
                         playWithBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
+
                     else
                         bipBoredom -= 1;
                         bipFilth += 2;
@@ -139,8 +143,9 @@ int main()
                         cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                     break;
                 case 3:
-                    if (bipFilth > 0)
+                    if (4 > bipFilth > 0)
                         washBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
+
                     else
                         bipFilth -= 2;
                         bipHunger += 1;
