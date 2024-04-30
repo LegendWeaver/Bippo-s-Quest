@@ -30,8 +30,42 @@ void washBippo(int& bipHunger, int& bipFilth, int& bipBoredom, int& action, cons
 }
 
 void bippoWarning (int& bipHunger, int& bipFilth, int& bipBoredom, int& action, const string& playerName) {
-    cout << "\n\n Warning! Bippo is looking too";
+    bool warning = false;
+    string issue = "Warning! Bippo is looking too";
     
+    if (bipHunger >= 3) {
+        issue+=" hungry ";
+        warning = true;
+    }
+
+    if (bipBoredom >= 3) {
+        issue+=" bored ";
+        warning = true;
+    }
+
+    if (bipFilth >= 3) {
+        issue+=" dirty ";
+        warning = true;
+    }
+
+    if (bipHunger <= -3) {
+        issue+=" full ";
+        warning = true;
+    }
+
+       if (bipBoredom <= -3) {
+        issue+=" excited ";
+        warning = true;
+    }
+
+       if (bipFilth <= -3) {
+        issue+=" clean ";
+        warning = true;
+    }
+
+    if (warning){
+          cout << "\n\n" << issue << "Keep that in mind before you do anything, Guardian " << playerName << ".\n";
+    }
 }
 
 
@@ -47,7 +81,7 @@ int main()
     cin >> start;
     tolower(start);
 
-
+    while (!gameStart){
     if (start == 'y')
     {
         // start game
@@ -64,6 +98,8 @@ int main()
     {
         cout << "\nError. Invalid input.";
     }
+    break;
+    }
 
     if (gameStart == true)
     {
@@ -73,12 +109,6 @@ int main()
         getline(cin, playerName);
     }
 
-    if (-4 << bipBoredom << 4 && -4 << bipHunger << 4 && -4 << bipFilth << 4 ) {
-        bool bipHealth = true;
-    } else {
-        bipHealth = false;
-    }
-
     while (gameStart == true && !playerName.empty()) {
 
 
@@ -86,7 +116,7 @@ int main()
                 << playerName << "? Alright. It seems he's learned your name. You have a few choices now! Do you feed him (enter 1)? Play with him (enter 2)? Or wash him (enter 3)? I'll leave you to it!\n\n";
             cin >> action;
 
-            if (bipHealth == true) {
+      
                 // taking care of Bippo
                 switch (action) {
                 case 1:
@@ -121,8 +151,7 @@ int main()
                 default:
                 cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                 break;
-            }
-        } 
+            } 
     }
 
 
