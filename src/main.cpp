@@ -124,37 +124,35 @@ int main()
                         feedBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
                     else
                         bipHunger -= 1;
-                    bipFilth += 1;
-                    action = 0;
-                    cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                        bipFilth += 1;
+                        action = 0;
+                        cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                     break;
                 case 2:
                     if (bipBoredom > 0)
                         playWithBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
                     else
                         bipBoredom -= 1;
-                    bipFilth += 2;
-                    bipHunger += 1;
-                    action = 0;
-                    cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                        bipFilth += 2;
+                        bipHunger += 1;
+                        action = 0;
+                        cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                     break;
                 case 3:
                     if (bipFilth > 0)
                         washBippo(bipHunger, bipFilth, bipBoredom, action, playerName);
                     else
                         bipFilth -= 2;
-                    bipHunger += 1;
-                    action = 0;
-                    cout << "\n\n *Bippo let's you bathe him again, despite the fact he's already spotless.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                        bipHunger += 1;
+                        action = 0;
+                        cout << "\n\n *Bippo let's you bathe him again, despite the fact he's already spotless.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                     break;
 
                 default:
-                cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                    cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
                 break;
             } 
     }
 
-
-
-    return 0;
+   return 0;
 }
