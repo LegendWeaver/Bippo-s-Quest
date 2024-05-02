@@ -27,7 +27,7 @@ void playWithBippo(int& hunger, int& filth, int& boredom, int& action, const str
     hunger -= 1;
     filth += 1;
     action = 0;
-    cout << "\n\n *Bippo looks at you excitedly as you toss him a treat.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    cout << "\n\n *Bippo looks at you excitedly leaps in the air as you throw him a stick.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
     action = 0;
 }
 
@@ -113,7 +113,7 @@ int main()
     break;
     }
 
-    if (gameStart == true && playerName.empty())
+    while (gameStart == true && playerName.empty())
     {
         cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
         //cin >> playerName;
@@ -130,39 +130,39 @@ int main()
       
                 // taking care of Bippo
                 switch (action) {
-                case 1:
-                    if (4 > b1.hunger > 0)
-                        feedBippo(b1.hunger,b1.filth, b1.boredom, action, playerName);
-                    else
-                        b1.hunger -= 1;
-                        b1.filth += 1;
-                        cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-                        action = 0;
-                    break;
-                case 2:
-                    if (4 > b1.boredom > 0)
-                        playWithBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                    case 1:
+                        if (4 > b1.hunger > 0)
+                            feedBippo(b1.hunger,b1.filth, b1.boredom, action, playerName);
+                        else
+                            b1.hunger -= 1;
+                            b1.filth += 1;
+                            cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                            action = 0;
+                        break;
+                    case 2:
+                        if (4 > b1.boredom > 0)
+                            playWithBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
 
-                    else
-                        b1.boredom -= 1;
-                        b1.filth += 2;
-                        b1.hunger += 1;
-                        cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-                        action = 0;
-                    break;
-                case 3:
-                    if (4 > b1.filth > 0)
-                        washBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
-                    else
-                        b1.filth -= 2;
-                        b1.hunger += 1;
-                        cout << "\n\n *Bippo let's you bathe him again, despite the fact he's already spotless.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-                        action = 0;
-                    break;
+                        else
+                            b1.boredom -= 1;
+                            b1.filth += 2;
+                            b1.hunger += 1;
+                            cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                            action = 0;
+                        break;
+                    case 3:
+                        if (4 > b1.filth > 0)
+                            washBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                        else
+                            b1.filth -= 2;
+                            b1.hunger += 1;
+                            cout << "\n\n *Bippo let's you bathe him again, despite the fact he's already spotless.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                            action = 0;
+                        break;
 
-                default:
-                    cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-                break;
+                    default:
+                        cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                    break;
             } 
     }
 
