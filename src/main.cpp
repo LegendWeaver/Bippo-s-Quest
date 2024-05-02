@@ -15,10 +15,15 @@ class Bippo {
 
 void feedBippo(int& hunger, int& filth, int& boredom, int& action, const string& playerName)
 {
-    hunger -= 1;
-    filth += 1;
-    action = 0;
-    cout << "\n\n *Bippo looks at you excitedly as you toss him a treat.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    if (-4 < hunger < 4) {
+        hunger -= 1;
+        filth += 1;
+        cout << "\n\n *Bippo looks at you excitedly as you toss him a treat.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    } else {
+        hunger -= 1;
+        filth += 1;
+        cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+    }
     action = 0;
 }
 
@@ -131,14 +136,8 @@ int main()
                 // taking care of Bippo
                 switch (action) {
                     case 1:
-                        if (4 > b1.hunger > 0)
-                            feedBippo(b1.hunger,b1.filth, b1.boredom, action, playerName);
-                        else
-                            b1.hunger -= 1;
-                            b1.filth += 1;
-                            cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-                            action = 0;
-                        break;
+                        feedBippo(b1.hunger,b1.filth, b1.boredom, action, playerName);
+                       break;
                     case 2:
                         if (4 > b1.boredom > 0)
                             playWithBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
