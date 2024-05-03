@@ -7,7 +7,6 @@ using namespace std;
 
 class Bippo
 {
-private:
 public:
     int hunger = 1, filth = 1, boredom = 1;
 };
@@ -26,6 +25,7 @@ void feedBippo(int &hunger, int &filth, int &boredom, int &action, const string 
         filth += 1;
         cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
     }
+    
     action = 0;
 }
 
@@ -109,8 +109,7 @@ void bippoWarning(int &hunger, int &filth, int &boredom, int &action, const stri
 
     if (warning)
     {
-        cout << "\n\n"
-             << issue << "Keep that in mind before you do anything, Guardian " << playerName << ".\n";
+        cout << "\n\n" << issue << "Keep that in mind before you do anything, Guardian " << playerName << ".\n";
     }
 }
 
