@@ -25,7 +25,7 @@ void feedBippo(int &hunger, int &filth, int &boredom, int &action, const string 
         filth += 1;
         cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
     }
-    
+
     action = 0;
 }
 
@@ -109,7 +109,8 @@ void bippoWarning(int &hunger, int &filth, int &boredom, int &action, const stri
 
     if (warning)
     {
-        cout << "\n\n" << issue << "Keep that in mind before you do anything, Guardian " << playerName << ".\n";
+        cout << "\n\n"
+             << issue << "Keep that in mind before you do anything, Guardian " << playerName << ".\n";
     }
 }
 
@@ -147,40 +148,45 @@ int main()
         break;
     }
 
-    while (gameStart == true && playerName.empty())
+    bool actionTaken = false;
+
+    while (gameStart)
     {
-        cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
-        // cin >> playerName;
-        cin.ignore();
-        getline(cin, playerName);
-        cout << "\n"
-             << playerName << "? Alright. It seems he's learned your name. You have a few choices now! Do you feed him (enter 1)? Play with him (enter 2)? Or wash him (enter 3)? I'll leave you to it!\n\n";
-    }
-
-    while (gameStart == true && !playerName.empty())
-    {
-
-        cin >> action;
-
-        // taking care of Bippo
-        switch (action)
+        while (playerName.empty() && !actionTaken)
         {
-        case 1:
-            feedBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            break;
-        case 2:
-            playWithBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            break;
-        case 3:
-            washBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
-            break;
+            cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
+            // cin >> playerName;
+            cin.ignore();
+            getline(cin, playerName);
+            cout << "\n"
+                 << playerName << "? Alright. It seems he's learned your name. You have a few choices now! Do you feed him (enter 1)? Play with him (enter 2)? Or wash him (enter 3)? I'll leave you to it!\n\n";
+        }
 
-        default:
-            cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-            break;
+        while (!playerName.empty())
+        {
+            actionTaken = true;
+            cin >> action;
+
+            // taking care of Bippo
+            switch (action)
+            {
+            case 1:
+                feedBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                break;
+            case 2:
+                playWithBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                break;
+            case 3:
+                washBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                break;
+
+            default:
+                cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
+                break;
+            }
         }
     }
 
