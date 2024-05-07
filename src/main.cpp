@@ -14,9 +14,9 @@ public:
 void interactBippo(int &hunger, int &filth, int &boredom, int &action, const string &playerName)
 {
     // feed
-    if (action = 1)
+    if (action == 1)
     {
-        if (4 > hunger > 0)
+        if (4 > hunger && hunger > 0)
         {
             hunger -= 1;
             filth += 1;
@@ -28,13 +28,13 @@ void interactBippo(int &hunger, int &filth, int &boredom, int &action, const str
             filth += 1;
             cout << "\n\n * Bippo eats the treat but he doesn't eat it with the same thrill as before. He doesn't seem to being hungry*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
         }
-        action = "";
+        action = 0;
     }
 
-    else if (action = 2)
+    else if (action == 2)
     {
         // play
-        if (4 > boredom > 0)
+        if (4 > boredom && boredom > 0)
         {
             hunger -= 1;
             filth += 1;
@@ -48,13 +48,13 @@ void interactBippo(int &hunger, int &filth, int &boredom, int &action, const str
             hunger += 1;
             cout << "\n\n *Bippo looks at you with almost frightening levels of excitement as you play a game of stick throw.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
         }
-        action = "";
+        action = 0;
     }
 
-    else if (action = 3)
+    else if (action == 3)
     {
         // wash
-        if (4 > filth > 0)
+        if (4 > filth && filth > 0)
         {
             filth = 0;
             hunger += 1;
@@ -67,12 +67,12 @@ void interactBippo(int &hunger, int &filth, int &boredom, int &action, const str
             hunger += 1;
             cout << "\n\n *Bippo let's you bathe him again, despite the fact he's already spotless.*\n\n What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
         }
-        action = "";
+        action = 0;
     }
     else
     {
         cout << "\n\n Apologies, guardian, but that is not a valid input. What next, Guardian " << playerName << "? Feed him (1)? Play with him (2)? Wash him (3)?\n";
-        action = "";
+        action = 0;
     }
     action = 0;
 }
@@ -133,7 +133,7 @@ int main()
     bool gameStart = false;
     Bippo b1;
 
-    cout << "Welcome to Bippo's Quest! You are Bippo's new guardian, correct? Y for yes, N for no\n\n"
+    cout << "Welcome to Bippo's Quest! You are Bippo's new guardian, correct? Enter 'y' for yes, 'n' for no\n\n"
          << endl;
     cin >> start;
     tolower(start);
@@ -163,10 +163,10 @@ int main()
 
     while (gameStart)
     {
-        while (playerName.empty() && !actionTaken)
+        while (playerName.empty() || !actionTaken)
         {
             cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
-            // cin >> playerName;
+            cin >> playerName;
             cin.ignore();
             getline(cin, playerName);
             cout << "\n"
