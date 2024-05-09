@@ -9,6 +9,33 @@ class Bippo
 {
 public:
     int hunger = 1, filth = 1, boredom = 1;
+    bool starve, bloat, gunked, blinding, dull, overexcited;
+
+    private:
+    if (hunger > 4) {
+        starve = true;
+    }
+
+    if (hunger < -4) {
+        bloat = true;
+    }
+
+    if (filth > 4) {
+        gunked = true;
+    }
+
+    if (filth < -4) {
+        blinding = true;
+    }
+
+    if (boredom > 4) {
+        dull = true;
+    }
+
+      if (boredom < -4) {
+        overexcited = true;
+    }
+
 };
 
 void interactBippo(int &hunger, int &filth, int &boredom, int &action, const string &playerName)
@@ -133,7 +160,7 @@ int main()
     bool gameStart = false;
     Bippo b1;
 
-    cout << "Welcome to Bippo's Quest! You are Bippo's new guardian, correct? Enter 'y' for yes, 'n' for no\n\n"
+    cout << "Welcome to Bippo's Quest! You are Bippo's new guardian, correct? Enter y for yes, n for no\n\n"
          << endl;
     cin >> start;
     tolower(start);
@@ -163,7 +190,7 @@ int main()
 
     while (gameStart)
     {
-        while (playerName.empty() || !actionTaken)
+        if (playerName.empty() && !actionTaken)
         {
             cout << "Bippo is a small creature, but believe it or not, he's going to save the world! But not yet. He needs your guidance. Crazy amount of pressure right? Trust me, I know.\n\n Baby steps first. Teach him his first word. Enter your name!\n\n";
             cin >> playerName;
