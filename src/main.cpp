@@ -11,31 +11,36 @@ public:
     int hunger = 1, filth = 1, boredom = 1;
     bool starve, bloat, gunked, blinding, dull, overexcited;
 
-    private:
-    if (hunger > 4) {
+private:
+    if (hunger > 4)
+    {
         starve = true;
     }
 
-    if (hunger < -4) {
+    if (hunger < -4)
+    {
         bloat = true;
     }
 
-    if (filth > 4) {
+    if (filth > 4)
+    {
         gunked = true;
     }
 
-    if (filth < -4) {
+    if (filth < -4)
+    {
         blinding = true;
     }
 
-    if (boredom > 4) {
+    if (boredom > 4)
+    {
         dull = true;
     }
 
-      if (boredom < -4) {
+    if (boredom < -4)
+    {
         overexcited = true;
     }
-
 };
 
 void interactBippo(int &hunger, int &filth, int &boredom, int &action, const string &playerName)
@@ -206,7 +211,7 @@ int main()
             cin >> action;
 
             // taking care of Bippo
-
+            if (!b1.blinding && !b1.gunked && !b1.dull && !b1.overexcited && !b1.bloat && !b1.starve)
             interactBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
             bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
         }
