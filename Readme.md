@@ -6,4 +6,3 @@ A text based pet management game.
 
 ### Logic Flow:
 
-### MockUp:
