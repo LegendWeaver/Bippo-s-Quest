@@ -210,12 +210,17 @@ int main()
 
             actionTaken = true;
             cin >> action;
+            int days = 0;
+            if (days = 7) {
+            cout "Congratulations! You have successfully taken care of Bippo for a week"
 
+            } else {
             // taking care of Bippo
             if (!b1.blinding && !b1.gunked && !b1.dull && !b1.overexcited && !b1.bloat && !b1.starve)
             {
                 interactBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
                 bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                days = +1
             }
 
             if (b1.blinding || b1.gunked || b1.dull || b1.overexcited || b1.bloat || b1.starve)
@@ -247,6 +252,7 @@ int main()
                     cout << "not fed Bippo enough, to the point where he took food into his own hands and broke into a Walmart! Bippo now has a life sentence for eating all the frozen microwaveable meals at Walmart! You have failed to raise the world's savior. Game over.";
                 }
                 exit(0);
+            }
             }
         }
     }
