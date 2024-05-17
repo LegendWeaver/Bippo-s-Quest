@@ -5,4 +5,4 @@
 A text based pet management game.
 
 ### Logic Flow:
-
+![Class Diagram](https://github.com/LegendWeaver/Bippo-s-Quest/blob/main/images/cg1.png?raw=true)
