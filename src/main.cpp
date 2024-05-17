@@ -211,48 +211,51 @@ int main()
             actionTaken = true;
             cin >> action;
             int days = 0;
-            if (days = 7) {
-            cout "Congratulations! You have successfully taken care of Bippo for a week"
-
-            } else {
-            // taking care of Bippo
-            if (!b1.blinding && !b1.gunked && !b1.dull && !b1.overexcited && !b1.bloat && !b1.starve)
+            if (days == 7)
             {
-                interactBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
-                bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
-                days = +1
+                cout << "Congratulations! You have successfully taken care of Bippo for a week";
             }
-
-            if (b1.blinding || b1.gunked || b1.dull || b1.overexcited || b1.bloat || b1.starve)
+            else
             {
-                cout << "Oh no! It seems as though you have not properly taken care of Bippo! You have ";
+                // taking care of Bippo
+                if (!b1.blinding && !b1.gunked && !b1.dull && !b1.overexcited && !b1.bloat && !b1.starve)
+                {
+                    interactBippo(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                    bippoWarning(b1.hunger, b1.filth, b1.boredom, action, playerName);
+                    days = +1;
+                }
 
-                if (b1.blinding)
+                if (b1.blinding || b1.gunked || b1.dull || b1.overexcited || b1.bloat || b1.starve)
                 {
-                    cout << "overwashed Bippo, to the point where he blinds everyone he looks at him! You have failed to raise the world's savior. Game over.";
+                    cout << "Oh no! It seems as though you have not properly taken care of Bippo! You have ";
+
+                    if (b1.blinding)
+                    {
+                        cout << "overwashed Bippo, to the point where he blinds everyone he looks at him!";
+                    }
+                    else if (b1.gunked)
+                    {
+                        cout << "not washed Bippo enough, to the point where he has been consumed by the gunk that coats him! You can no longer find Bippo among the filth.";
+                    }
+                    else if (b1.dull)
+                    {
+                        cout << "not played with Bippo enough, to the point where he has become so bored he turned to stone!";
+                    }
+                    else if (b1.overexcited)
+                    {
+                        cout << "played with Bippo too much, to the point where he exploded from overexcitement!";
+                    }
+                    else if (b1.bloat)
+                    {
+                        cout << "overfed Bippo, to the point where he can no longer move and has taken a aftermeal nap that will last a thousand years!";
+                    }
+                    else if (b1.starve)
+                    {
+                        cout << "not fed Bippo enough, to the point where he took food into his own hands and broke into a Walmart! Bippo now has a life sentence for eating all the frozen microwaveable meals at Walmart!";
+                    }
+                    cout << " You have failed to raise the world's savior. Game over.";
+                    exit(0);
                 }
-                else if (b1.gunked)
-                {
-                    cout << "not washed Bippo enough, to the point where he has been consumed by the gunk that coats him! You can no longer find Bippo among the filth. You have failed to raise the world's savior. Game over.";
-                }
-                else if (b1.dull)
-                {
-                    cout << "not played with Bippo enough, to the point where he has become so bored he turned to stone! You have failed to raise the world's savior. Game over.";
-                }
-                else if (b1.overexcited)
-                {
-                    cout << "played with Bippo too much, to the point where he exploded from overexcitement! You have failed to raise the world's savior. Game over.";
-                }
-                else if (b1.bloat)
-                {
-                    cout << "overfed Bippo, to the point where he can no longer move and has taken a aftermeal nap that will last a thousand years! You have failed to raise the world's savior. Game over.";
-                }
-                else if (b1.starve)
-                {
-                    cout << "not fed Bippo enough, to the point where he took food into his own hands and broke into a Walmart! Bippo now has a life sentence for eating all the frozen microwaveable meals at Walmart! You have failed to raise the world's savior. Game over.";
-                }
-                exit(0);
-            }
             }
         }
     }
